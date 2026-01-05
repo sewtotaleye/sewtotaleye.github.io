@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Social • Games • Software • Art</title>
-  <meta name="description" content="Portfolio hub: social media management, indie game dev, software engineering, and 2D/3D art." />
+  <title>Client Connect — Your Name</title>
+  <meta name="description" content="Secure client onboarding: connect your social accounts via Sendible." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,18 +12,15 @@
 
   <style>
     :root{
-      /* Pink, bright, minimal UI */
       --bg: #fff7fd;
       --ink: #121018;
       --muted: rgba(18,16,24,.68);
 
       --pink: #ff2fb2;
-      --pink2:#ff66cc;
       --rose: #ff9bdd;
 
       --rule: rgba(18,16,24,.14);
-      --max: 1120px;
-
+      --max: 980px;
       --radius: 18px;
     }
 
@@ -37,16 +34,15 @@
         var(--bg);
       color:var(--ink);
       font-family:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.35;
+      line-height:1.45;
     }
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .rule{border-top:1px solid var(--rule); margin:26px 0}
 
-    /* NAV — minimal, text links, like his top bar */
-    .topbar{
-      position:sticky; top:0; z-index:30;
+    /* Minimal sticky header */
+    header{
+      position:sticky; top:0; z-index:10;
       background: rgba(255,247,253,.88);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--rule);
@@ -61,555 +57,134 @@
       letter-spacing:.2px;
       white-space:nowrap;
     }
-    .brand span{
-      color: var(--pink);
-    }
-    .links{
-      display:flex; align-items:center; gap:18px;
+    .brand span{color: var(--pink)}
+    .nav a{
       font-size:13px;
       letter-spacing:.06em;
       text-transform:uppercase;
       font-weight:700;
-    }
-    .links a{
-      padding: 6px 0;
       border-bottom: 2px solid transparent;
-    }
-    .links a:hover{border-bottom-color: var(--ink)}
-    .icons{display:flex; gap:10px; align-items:center}
-    .iconlink{
-      font-size:13px;
+      padding-bottom:2px;
       color: var(--muted);
-      border-bottom: 2px solid transparent;
-      padding: 6px 0;
     }
-    .iconlink:hover{color: var(--ink); border-bottom-color: var(--pink)}
+    .nav a:hover{color: var(--ink); border-bottom-color: var(--pink)}
 
-    /* Mobile menu */
-    .burger{display:none}
-    .mobile{display:none; padding: 0 0 14px 0}
-    .mobile a{
-      display:block;
-      padding: 12px 0;
-      border-top: 1px solid var(--rule);
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-weight:700;
-    }
-    @media (max-width: 900px){
-      .links{display:none}
-      .burger{display:inline-flex; gap:10px; align-items:center; cursor:pointer; user-select:none}
-      .burger b{font-size:13px; letter-spacing:.06em; text-transform:uppercase}
-      .mobile.open{display:block}
-    }
-
-    /* HERO — no “buttons”, just headline + sub + text links */
-    header{padding: 22px 0 10px 0}
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items:start;
-    }
-    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+    main{padding: 22px 0 48px 0}
 
     h1{
-      margin:0 0 10px 0;
-      font-size: 44px;
-      line-height:1.05;
+      margin: 0 0 10px 0;
+      font-size: 36px;
+      line-height:1.1;
       letter-spacing:-.02em;
     }
     .sub{
-      margin:0 0 14px 0;
+      margin:0 0 16px 0;
       color: var(--muted);
-      max-width: 62ch;
+      max-width: 70ch;
       font-size: 16px;
     }
-    .heroLinks{
-      display:flex; flex-wrap:wrap; gap:14px;
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-weight:700;
-    }
-    .heroLinks a{
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 2px;
-    }
-    .heroLinks a:hover{border-bottom-color: var(--pink)}
-    .promo{
-      border:1px solid var(--rule);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background: white;
-    }
-    .promoMedia{
-      aspect-ratio: 16 / 9;
-      background:
-        linear-gradient(135deg, rgba(255,47,178,.85), rgba(255,155,221,.85));
-      position:relative;
-    }
-    .promoMedia small{
-      position:absolute; left:14px; bottom:12px;
-      color:#fff;
-      font-weight:700;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:12px;
-    }
-    .promoBody{padding: 12px 14px}
-    .promoBody b{display:block; margin-bottom:6px}
-    .promoBody p{margin:0; color:var(--muted)}
-    .promoBody a{
-      display:inline-block;
-      margin-top:10px;
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-weight:700;
-      border-bottom: 2px solid var(--ink);
-      padding-bottom:2px;
-    }
-    .promoBody a:hover{border-bottom-color: var(--pink)}
 
-    /* SECTION HEADS — super plain */
-    .sectionHead{
-      display:flex; align-items:baseline; justify-content:space-between;
-      gap:14px;
-      margin: 10px 0 10px 0;
-    }
-    .sectionHead h2{
-      margin:0;
-      font-size: 18px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-    }
-    .sectionHead .miniLink{
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-weight:700;
-      color: var(--muted);
-      border-bottom:2px solid transparent;
-      padding-bottom:2px;
-    }
-    .sectionHead .miniLink:hover{color: var(--ink); border-bottom-color: var(--pink)}
-
-    /* HORIZONTAL SCROLLER — like his book row */
-    .scroller{
-      display:grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(260px, 1fr);
-      gap: 14px;
-      overflow:auto;
-      padding: 6px 0 10px 0;
-      scroll-snap-type: x mandatory;
-    }
-    .scroller::-webkit-scrollbar{height:10px}
-    .scroller::-webkit-scrollbar-thumb{background: rgba(18,16,24,.18); border-radius:999px}
     .card{
-      scroll-snap-align: start;
-      border:1px solid var(--rule);
+      background:#fff;
+      border: 1px solid var(--rule);
       border-radius: var(--radius);
       overflow:hidden;
-      background:#fff;
-      min-height: 100%;
     }
-    .cardMedia{
-      aspect-ratio: 4 / 3;
-      background:
-        radial-gradient(240px 180px at 20% 30%, rgba(255,47,178,.35), transparent 60%),
-        radial-gradient(240px 180px at 80% 70%, rgba(255,155,221,.35), transparent 60%),
-        #fff;
+    .cardHead{
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--rule);
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .cardBody{padding: 12px 14px}
-    .cardBody h3{margin:0 0 6px 0; font-size: 18px}
-    .cardBody p{margin:0; color: var(--muted)}
-    .cardBody a{
-      display:inline-block;
-      margin-top:10px;
+    .cardHead b{
       font-size:13px;
       letter-spacing:.06em;
       text-transform:uppercase;
-      font-weight:700;
-      border-bottom: 2px solid var(--ink);
-      padding-bottom:2px;
     }
-    .cardBody a:hover{border-bottom-color: var(--pink)}
-
-    /* GALLERY — image first + title + tiny caption, like his long list */
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 980px){ .gallery{grid-template-columns: repeat(2,1fr)} }
-    @media (max-width: 640px){ .gallery{grid-template-columns: 1fr} }
-
-    .work{
-      border:1px solid var(--rule);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background:#fff;
-    }
-    .workMedia{
-      aspect-ratio: 16 / 10;
-      background:
-        linear-gradient(135deg, rgba(18,16,24,.04), rgba(18,16,24,0)),
-        radial-gradient(240px 160px at 25% 30%, rgba(255,47,178,.28), transparent 60%),
-        radial-gradient(240px 160px at 80% 70%, rgba(255,155,221,.28), transparent 60%);
-    }
-    .workBody{padding: 10px 12px}
-    .workBody b{display:block}
-    .workBody span{display:block; color: var(--muted); margin-top:4px}
-    .workBody a{
-      display:inline-block;
-      margin-top:10px;
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-weight:700;
-      border-bottom: 2px solid var(--ink);
-      padding-bottom:2px;
-    }
-    .workBody a:hover{border-bottom-color: var(--pink)}
-
-    /* FOOTER — simple, like his repeated contact line vibe */
-    footer{padding: 30px 0 46px 0}
-    .foot{
+    .cardHead small{
       color: var(--muted);
-      border-top: 1px solid var(--rule);
-      padding-top: 18px;
+      font-size:13px;
+    }
+    .cardBody{padding: 14px}
+
+    .note{
+      margin: 14px 0 0 0;
+      color: var(--muted);
       font-size: 14px;
     }
-    .foot a{
+    .note a{
       color: var(--ink);
-      border-bottom:2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
       padding-bottom:2px;
       font-weight:700;
-      letter-spacing:.02em;
     }
-    .foot a:hover{border-bottom-color: var(--pink)}
+    .note a:hover{border-bottom-color: var(--pink)}
+
+    footer{
+      margin-top: 18px;
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
+  <header>
     <div class="wrap">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="Home">Your Name <span>✦</span></a>
-
-        <!-- His nav is basically a list of section pages. Same idea, your needs. -->
-        <nav class="links" aria-label="Primary navigation">
-          <a href="#social">Social</a>
-          <a href="#games">Games</a>
-          <a href="#software">Software</a>
-          <a href="#art">Art</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="icons">
-          <a class="iconlink" href="#" title="Replace with Instagram">Instagram</a>
-          <a class="iconlink" href="#" title="Replace with GitHub">GitHub</a>
-          <span class="burger" id="burger"><b>Menu</b></span>
-        </div>
-      </div>
-
-      <div class="mobile" id="mobileNav">
-        <a href="#social">Social</a>
-        <a href="#games">Games</a>
-        <a href="#software">Software</a>
-        <a href="#art">Art</a>
-        <a href="#contact">Contact</a>
+        <div class="brand">Your Name <span>✦</span> Client Connect</div>
+        <a href="./index.html">Back to portfolio</a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <main id="top" class="wrap">
-    <header>
-      <div class="hero">
-        <div>
-          <h1>Social media, indie games, software, and art — all under one pink roof.</h1>
-          <p class="sub">
-            I’m a social media manager, indie game developer, software engineer, and 2D/3D artist/illustrator.
-            This site is built like a hub: scroll the featured stuff, then dive into the gallery.
-          </p>
+  <main class="wrap">
+    <h1>Connect your accounts</h1>
+    <p class="sub">
+      If you’re a client, use the secure form below to connect your social profiles.
+      If anything looks weird or you hit an error, email me and I’ll help.
+    </p>
 
-          <!-- NOTE: text links, not “buttons” -->
-          <div class="heroLinks" aria-label="Quick links">
-            <a href="#gallery">View work</a>
-            <a href="#contact">Email</a>
-            <a href="#" title="Replace with resume link">Resume</a>
-          </div>
-        </div>
-
-        <aside class="promo" aria-label="Featured promo">
-          <div class="promoMedia">
-            <!-- Replace with an actual image/gif later -->
-            <small>Featured / current focus</small>
-          </div>
-          <div class="promoBody">
-            <b>Currently: building MakeScene + running launch content</b>
-            <p>Short-form content systems, community growth, and cozy-world development.</p>
-            <a href="#games">See the featured projects</a>
-          </div>
-        </aside>
+    <section class="card" aria-label="Sendible Client Connect">
+      <div class="cardHead">
+        <b>Secure Connection</b>
+        <small>Powered by Sendible</small>
       </div>
-    </header>
+      <div class="cardBody">
+        <!-- Sendible widget mount point -->
+        <div id="client-connect-widget"></div>
 
-    <div class="rule"></div>
+        <!-- Your provided Sendible embed snippet -->
+        <script>
+          !function(){
+            var e=document, t=e.createElement("iframe");
+            window.addEventListener("message", function(e){
+              if(!e || !e.data || !e.data.height){ return; }
+              t.height = (parseInt(e.data.height, 10) + 45) + "px";
+            }, false);
 
-    <!-- FEATURED ROW (his home page is a big “books” scroller) -->
-    <section id="social" aria-label="Social Media featured">
-      <div class="sectionHead">
-        <h2>Social Media</h2>
-        <a class="miniLink" href="#contact">Work with me</a>
+            t.style.border = "0";
+            t.style.width = "100%";
+            t.id = "client-connect-iframe";
+            t.src = "https://api.sendible.com/api/v2/client_connect_widget.json?id=3400";
+            e.getElementById("client-connect-widget").appendChild(t);
+          }();
+        </script>
+
+        <p class="note">
+          Trouble connecting? Email <a href="mailto:youremail@example.com">youremail@example.com</a>.
+        </p>
       </div>
-
-      <div class="scroller" aria-label="Social media highlights">
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Launch Week Campaign</h3>
-            <p>Reels + stories + prompts + reporting. (Put your real metric highlights here.)</p>
-            <a href="#">View examples</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Content System Setup</h3>
-            <p>Monthly themes, templates, and a repeatable calendar you can actually keep.</p>
-            <a href="#">See the system</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Community Growth Sprint</h3>
-            <p>Discord + posting rhythm + engagement loops. (Replace with your case study.)</p>
-            <a href="#">Read case study</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="rule"></div>
-
-    <section id="games" aria-label="Indie game dev featured">
-      <div class="sectionHead">
-        <h2>Indie Games</h2>
-        <a class="miniLink" href="#">Steam / itch</a>
-      </div>
-
-      <div class="scroller" aria-label="Games highlights">
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>MakeScene</h3>
-            <p>Cozy creation + collage vibes. Systems + UI + content pipeline.</p>
-            <a href="#">Watch trailer</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Devlog / Behind the Scenes</h3>
-            <p>Process posts, timelapses, and build updates.</p>
-            <a href="#">Read devlog</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Game Art + Assets</h3>
-            <p>2D/3D assets with consistent style and production sanity.</p>
-            <a href="#art">See the art</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="rule"></div>
-
-    <section id="software" aria-label="Software featured">
-      <div class="sectionHead">
-        <h2>Software</h2>
-        <a class="miniLink" href="#">GitHub</a>
-      </div>
-
-      <div class="scroller" aria-label="Software highlights">
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Content Calendar Generator</h3>
-            <p>Takes “vibe + goal” and outputs a weekly posting plan with hooks/captions.</p>
-            <a href="#">View code</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Automation Tools</h3>
-            <p>Small scripts that save time: exporters, renamers, batch processors.</p>
-            <a href="#">See snippets</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Portfolio Projects</h3>
-            <p>Clean UX, real utility, and readable code.</p>
-            <a href="#">Browse projects</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="rule"></div>
-
-    <section id="art" aria-label="Art featured">
-      <div class="sectionHead">
-        <h2>Art / Illustration / 3D</h2>
-        <a class="miniLink" href="#gallery">Jump to gallery</a>
-      </div>
-
-      <div class="scroller" aria-label="Art highlights">
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Illustration Series</h3>
-            <p>Posters, covers, character work. (Swap for your best set.)</p>
-            <a href="#gallery">View work</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>3D Props Kit</h3>
-            <p>Game-ready assets with consistent scale + style.</p>
-            <a href="#gallery">See renders</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardMedia"></div>
-          <div class="cardBody">
-            <h3>Asset Packs</h3>
-            <p>Icons, UI, environment bits, and whatever else your worlds need.</p>
-            <a href="#contact">Commission / license</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="rule"></div>
-
-    <!-- LONG GALLERY (this is the “Andy-style” endless portfolio list) -->
-    <section id="gallery" aria-label="Work gallery">
-      <div class="sectionHead">
-        <h2>Selected Work</h2>
-        <a class="miniLink" href="#contact">Inquiries</a>
-      </div>
-
-      <div class="gallery">
-        <!-- Replace each workMedia with <img src="..."> when you have images -->
-        <article class="work">
-          <div class="workMedia"></div>
-          <div class="workBody">
-            <b>Client / Project Name</b>
-            <span>One-line description (what it was / your role).</span>
-            <a href="#">Details</a>
-          </div>
-        </article>
-
-        <article class="work">
-          <div class="workMedia"></div>
-          <div class="workBody">
-            <b>Game / Tool / Campaign</b>
-            <span>Short caption. Keep it simple.</span>
-            <a href="#">Details</a>
-          </div>
-        </article>
-
-        <article class="work">
-          <div class="workMedia"></div>
-          <div class="workBody">
-            <b>Illustration / 3D Asset</b>
-            <span>Short caption. Keep it simple.</span>
-            <a href="#">Details</a>
-          </div>
-        </article>
-
-        <article class="work">
-          <div class="workMedia"></div>
-          <div class="workBody">
-            <b>Social Content Set</b>
-            <span>Short caption. Keep it simple.</span>
-            <a href="#">Details</a>
-          </div>
-        </article>
-
-        <article class="work">
-          <div class="workMedia"></div>
-          <div class="workBody">
-            <b>Software Project</b>
-            <span>Short caption. Keep it simple.</span>
-            <a href="#">Details</a>
-          </div>
-        </article>
-
-        <article class="work">
-          <div class="workMedia"></div>
-          <div class="workBody">
-            <b>Commission / Poster</b>
-            <span>Short caption. Keep it simple.</span>
-            <a href="#">Details</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="rule"></div>
-
-    <section id="contact" aria-label="Contact">
-      <div class="sectionHead">
-        <h2>Contact</h2>
-        <span class="miniLink" style="border-bottom:0; cursor:default;">Booking + Collabs</span>
-      </div>
-
-      <p style="margin:0; color:var(--muted); max-width:70ch;">
-        Email: <a href="mailto:youremail@example.com">youremail@example.com</a> •
-        Instagram: <a href="#">@yourhandle</a> •
-        GitHub: <a href="#">yourgithub</a> •
-        LinkedIn: <a href="#">yourlinkedin</a>
-      </p>
     </section>
 
     <footer>
-      <div class="foot">
-        © <span id="year"></span> Your Name • Built as a pink, image-first hub inspired by modern illustration portfolios. :contentReference[oaicite:2]{index=2}
-      </div>
+      This page is for client onboarding only. If you landed here by accident, head back to the portfolio.
     </footer>
   </main>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const burger = document.getElementById('burger');
-    const mobile = document.getElementById('mobileNav');
-    if (burger && mobile){
-      burger.addEventListener('click', () => mobile.classList.toggle('open'));
-      mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobile.classList.remove('open')));
-    }
-  </script>
 </body>
 </html>
