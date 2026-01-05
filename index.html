@@ -3,37 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Social Media • Indie Game Dev • Software • Art</title>
-  <meta name="description" content="Portfolio of a social media manager, indie game developer, software engineer, and 2D/3D artist." />
+  <title>Your Name — Social • Games • Software • Art</title>
+  <meta name="description" content="Portfolio hub: social media management, indie game dev, software engineering, and 2D/3D art." />
 
-  <!-- Optional: swap to your favorite fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Pink-forward palette */
-      --bg: #0b0610;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
+      /* Pink, bright, minimal UI */
+      --bg: #fff7fd;
+      --ink: #121018;
+      --muted: rgba(18,16,24,.68);
 
-      --pink: #ff4fd8;
-      --hot:  #ff2aa6;
-      --rose: #ff77b7;
-      --lilac:#b57bff;
-      --peach:#ffb38a;
+      --pink: #ff2fb2;
+      --pink2:#ff66cc;
+      --rose: #ff9bdd;
 
-      --stroke: rgba(255,255,255,.14);
-      --shadow: 0 22px 60px rgba(0,0,0,.55);
-
-      --radius-xl: 28px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-
+      --rule: rgba(18,16,24,.14);
       --max: 1120px;
+
+      --radius: 18px;
     }
 
     *{box-sizing:border-box}
@@ -41,726 +32,584 @@
     body{
       margin:0;
       background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(255,79,216,.24), transparent 65%),
-        radial-gradient(900px 600px at 90% 10%, rgba(181,123,255,.20), transparent 60%),
-        radial-gradient(1100px 700px at 60% 110%, rgba(255,179,138,.14), transparent 60%),
+        radial-gradient(900px 520px at 18% -8%, rgba(255,47,178,.16), transparent 60%),
+        radial-gradient(860px 560px at 90% 10%, rgba(255,155,221,.20), transparent 55%),
         var(--bg);
-      color:var(--text);
-      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.25;
+      color:var(--ink);
+      font-family:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.35;
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .pill{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 12px;
-      border:1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border-radius:999px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.22);
-      color:var(--muted);
-      font-size:14px;
-    }
-    .dot{width:8px;height:8px;border-radius:99px;background:var(--pink); box-shadow:0 0 18px rgba(255,79,216,.75)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:700;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      cursor:pointer;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
-    .btn.primary{
-      border-color: rgba(255,79,216,.65);
-      background: linear-gradient(135deg, rgba(255,79,216,.90), rgba(255,42,166,.75));
-      box-shadow: 0 20px 45px rgba(255,42,166,.18);
-    }
-    .btn.primary:hover{filter:saturate(1.06); transform: translateY(-2px)}
-    .btn.small{padding:10px 14px; font-size:14px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .rule{border-top:1px solid var(--rule); margin:26px 0}
 
-    /* Nav */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(180deg, rgba(11,6,16,.78), rgba(11,6,16,.45));
-      border-bottom: 1px solid rgba(255,255,255,.10);
+    /* NAV — minimal, text links, like his top bar */
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      background: rgba(255,247,253,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
     }
-    .navbar{
+    .nav{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
       gap:14px;
+      padding: 14px 0;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
-    .logo{
-      width:38px;height:38px;border-radius:14px;
-      background:
-        radial-gradient(16px 16px at 30% 30%, rgba(255,255,255,.35), transparent 60%),
-        linear-gradient(135deg, var(--pink), var(--lilac));
-      box-shadow: 0 16px 40px rgba(255,79,216,.18);
-      border:1px solid rgba(255,255,255,.14);
-    }
-    .navlinks{
-      display:flex; align-items:center; gap:12px;
-      color:var(--muted);
       font-weight:700;
-      font-size:14px;
+      letter-spacing:.2px;
+      white-space:nowrap;
     }
-    .navlinks a{padding:10px 10px; border-radius:10px}
-    .navlinks a:hover{background: rgba(255,255,255,.06); color:var(--text)}
-    .navright{display:flex; gap:10px; align-items:center}
-    .burger{display:none}
-    @media (max-width: 860px){
-      .navlinks{display:none}
-      .burger{display:inline-flex}
+    .brand span{
+      color: var(--pink);
     }
+    .links{
+      display:flex; align-items:center; gap:18px;
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .links a{
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .links a:hover{border-bottom-color: var(--ink)}
+    .icons{display:flex; gap:10px; align-items:center}
+    .iconlink{
+      font-size:13px;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      padding: 6px 0;
+    }
+    .iconlink:hover{color: var(--ink); border-bottom-color: var(--pink)}
 
     /* Mobile menu */
-    .mobile{
-      display:none;
-      padding: 0 0 16px 0;
-    }
-    .mobile.open{display:block}
+    .burger{display:none}
+    .mobile{display:none; padding: 0 0 14px 0}
     .mobile a{
       display:block;
-      padding:12px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      margin-top:10px;
-      color:var(--muted);
-      font-weight:800;
+      padding: 12px 0;
+      border-top: 1px solid var(--rule);
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
     }
-    .mobile a:hover{color:var(--text); border-color: rgba(255,255,255,.20)}
+    @media (max-width: 900px){
+      .links{display:none}
+      .burger{display:inline-flex; gap:10px; align-items:center; cursor:pointer; user-select:none}
+      .burger b{font-size:13px; letter-spacing:.06em; text-transform:uppercase}
+      .mobile.open{display:block}
+    }
 
-    /* Hero */
-    header.hero{
-      padding: 56px 0 10px 0;
-    }
-    .heroGrid{
+    /* HERO — no “buttons”, just headline + sub + text links */
+    header{padding: 22px 0 10px 0}
+    .hero{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 22px;
-      align-items:stretch;
-    }
-    @media (max-width: 960px){
-      .heroGrid{grid-template-columns:1fr}
-    }
-
-    .heroCard{
-      border:1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(900px 260px at 20% 0%, rgba(255,79,216,.18), transparent 60%),
-        radial-gradient(700px 260px at 90% 20%, rgba(181,123,255,.16), transparent 60%),
-        rgba(255,255,255,.04);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 26px;
-      position:relative;
-      overflow:hidden;
-    }
-    .heroCard:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(220px 220px at 20% 25%, rgba(255,79,216,.20), transparent 60%),
-        radial-gradient(220px 220px at 80% 70%, rgba(255,179,138,.14), transparent 65%);
-      pointer-events:none;
-      filter: blur(2px);
-    }
-    .heroInner{position:relative}
-    .kickerRow{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
-    h1{
-      margin: 16px 0 10px 0;
-      font-family:"Fraunces", serif;
-      font-size: 52px;
-      letter-spacing:.2px;
-      line-height: 1.02;
-    }
-    @media (max-width: 520px){h1{font-size:40px}}
-    .sub{
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.35;
-      max-width: 52ch;
-      margin: 0 0 18px 0;
-    }
-    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px}
-    .tagRow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px}
-
-    /* Side card */
-    .sideCard{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      position:relative;
-      overflow:hidden;
-    }
-    .sideCard:after{
-      content:"";
-      position:absolute; inset:auto -30px -30px auto;
-      width:200px; height:200px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,79,216,.28), transparent 62%);
-      transform: rotate(12deg);
-      pointer-events:none;
-    }
-    .sideTitle{font-weight:900; letter-spacing:.2px; margin: 0 0 12px 0}
-    .stack{
-      display:flex; flex-direction:column; gap:12px;
-    }
-    .mini{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius: 18px;
-      padding: 14px;
-      display:flex; gap:12px; align-items:flex-start;
-    }
-    .mini b{display:block; margin-bottom:4px}
-    .mini p{margin:0; color:var(--muted); font-size:14px; line-height:1.35}
-    .icon{
-      width:38px;height:38px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(255,79,216,.95), rgba(181,123,255,.75));
-      border:1px solid rgba(255,255,255,.14);
-      flex: 0 0 auto;
-    }
-
-    /* Sections */
-    section{padding: 46px 0}
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom: 18px;
-    }
-    h2{
-      margin:0;
-      font-size: 22px;
-      letter-spacing:.2px;
-    }
-    .hint{margin:0; color:var(--muted); font-size:14px; line-height:1.35; max-width:60ch}
-
-    .grid4{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px}
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
-    @media (max-width: 980px){ .grid4{grid-template-columns: repeat(2,1fr)} .grid3{grid-template-columns: repeat(2,1fr)} }
-    @media (max-width: 600px){ .grid4,.grid3,.grid2{grid-template-columns:1fr} }
-
-    .card{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius-xl);
-      padding: 18px;
-      box-shadow: 0 18px 44px rgba(0,0,0,.35);
-      position:relative;
-      overflow:hidden;
-      transition: transform .12s ease, border-color .12s ease;
-      min-height: 160px;
-    }
-    .card:hover{transform: translateY(-2px); border-color: rgba(255,255,255,.22)}
-    .card .top{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .badge{
-      font-size:12px;
-      font-weight:900;
-      color: rgba(255,255,255,.88);
-      padding: 6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-    }
-    .card h3{margin:0 0 6px 0; font-size:18px}
-    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.45}
-    .linkRow{margin-top:12px; display:flex; flex-wrap:wrap; gap:10px}
-    .thumb{
-      width:100%;
-      height: 140px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      margin-bottom: 12px;
-      background:
-        radial-gradient(120px 90px at 25% 30%, rgba(255,79,216,.26), transparent 60%),
-        radial-gradient(120px 90px at 80% 70%, rgba(255,179,138,.18), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-    }
-
-    /* Big feature tiles */
-    .feature{
-      display:grid; grid-template-columns: 1.1fr .9fr; gap:16px; align-items:stretch;
-    }
-    @media (max-width: 900px){ .feature{grid-template-columns:1fr} }
-    .feature .big{
-      padding: 22px;
-      border-radius: var(--radius-xl);
-      border:1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(900px 260px at 20% 0%, rgba(255,42,166,.18), transparent 60%),
-        rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-    }
-    .feature .big h3{
-      font-family:"Fraunces", serif;
-      font-size: 28px;
-      margin: 0 0 10px 0;
-      line-height:1.05;
-    }
-    .feature .big p{margin:0 0 14px 0; color:var(--muted); line-height:1.5}
-    .feature .side{
-      display:flex; flex-direction:column; gap:14px;
-    }
-
-    /* Footer */
-    footer{
-      padding: 44px 0 60px 0;
-      border-top: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,.25));
-    }
-    .footGrid{
-      display:grid; grid-template-columns: 1.2fr .8fr; gap:14px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
       align-items:start;
     }
-    @media (max-width: 900px){ .footGrid{grid-template-columns:1fr} }
-    .fine{color:var(--muted); font-size:14px; line-height:1.5}
-    .social{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
-    @media (max-width: 900px){ .social{justify-content:flex-start} }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
+    h1{
+      margin:0 0 10px 0;
+      font-size: 44px;
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0 0 14px 0;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 16px;
+    }
+    .heroLinks{
+      display:flex; flex-wrap:wrap; gap:14px;
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .heroLinks a{
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 2px;
+    }
+    .heroLinks a:hover{border-bottom-color: var(--pink)}
+    .promo{
+      border:1px solid var(--rule);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: white;
+    }
+    .promoMedia{
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(135deg, rgba(255,47,178,.85), rgba(255,155,221,.85));
+      position:relative;
+    }
+    .promoMedia small{
+      position:absolute; left:14px; bottom:12px;
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .promoBody{padding: 12px 14px}
+    .promoBody b{display:block; margin-bottom:6px}
+    .promoBody p{margin:0; color:var(--muted)}
+    .promoBody a{
+      display:inline-block;
+      margin-top:10px;
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom:2px;
+    }
+    .promoBody a:hover{border-bottom-color: var(--pink)}
+
+    /* SECTION HEADS — super plain */
+    .sectionHead{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:14px;
+      margin: 10px 0 10px 0;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .sectionHead .miniLink{
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
+      color: var(--muted);
+      border-bottom:2px solid transparent;
+      padding-bottom:2px;
+    }
+    .sectionHead .miniLink:hover{color: var(--ink); border-bottom-color: var(--pink)}
+
+    /* HORIZONTAL SCROLLER — like his book row */
+    .scroller{
+      display:grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(260px, 1fr);
+      gap: 14px;
+      overflow:auto;
+      padding: 6px 0 10px 0;
+      scroll-snap-type: x mandatory;
+    }
+    .scroller::-webkit-scrollbar{height:10px}
+    .scroller::-webkit-scrollbar-thumb{background: rgba(18,16,24,.18); border-radius:999px}
+    .card{
+      scroll-snap-align: start;
+      border:1px solid var(--rule);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      min-height: 100%;
+    }
+    .cardMedia{
+      aspect-ratio: 4 / 3;
+      background:
+        radial-gradient(240px 180px at 20% 30%, rgba(255,47,178,.35), transparent 60%),
+        radial-gradient(240px 180px at 80% 70%, rgba(255,155,221,.35), transparent 60%),
+        #fff;
+    }
+    .cardBody{padding: 12px 14px}
+    .cardBody h3{margin:0 0 6px 0; font-size: 18px}
+    .cardBody p{margin:0; color: var(--muted)}
+    .cardBody a{
+      display:inline-block;
+      margin-top:10px;
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom:2px;
+    }
+    .cardBody a:hover{border-bottom-color: var(--pink)}
+
+    /* GALLERY — image first + title + tiny caption, like his long list */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){ .gallery{grid-template-columns: repeat(2,1fr)} }
+    @media (max-width: 640px){ .gallery{grid-template-columns: 1fr} }
+
+    .work{
+      border:1px solid var(--rule);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+    }
+    .workMedia{
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(135deg, rgba(18,16,24,.04), rgba(18,16,24,0)),
+        radial-gradient(240px 160px at 25% 30%, rgba(255,47,178,.28), transparent 60%),
+        radial-gradient(240px 160px at 80% 70%, rgba(255,155,221,.28), transparent 60%);
+    }
+    .workBody{padding: 10px 12px}
+    .workBody b{display:block}
+    .workBody span{display:block; color: var(--muted); margin-top:4px}
+    .workBody a{
+      display:inline-block;
+      margin-top:10px;
+      font-size:13px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-weight:700;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom:2px;
+    }
+    .workBody a:hover{border-bottom-color: var(--pink)}
+
+    /* FOOTER — simple, like his repeated contact line vibe */
+    footer{padding: 30px 0 46px 0}
+    .foot{
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+      font-size: 14px;
+    }
+    .foot a{
+      color: var(--ink);
+      border-bottom:2px solid var(--ink);
+      padding-bottom:2px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .foot a:hover{border-bottom-color: var(--pink)}
   </style>
 </head>
 
 <body>
-  <div class="nav">
+  <div class="topbar">
     <div class="wrap">
-      <div class="navbar">
-        <a class="brand" href="#top" aria-label="Home">
-          <span class="logo" aria-hidden="true"></span>
-          <span>Your Name</span>
-        </a>
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Home">Your Name <span>✦</span></a>
 
-        <nav class="navlinks" aria-label="Primary">
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
+        <!-- His nav is basically a list of section pages. Same idea, your needs. -->
+        <nav class="links" aria-label="Primary navigation">
+          <a href="#social">Social</a>
+          <a href="#games">Games</a>
+          <a href="#software">Software</a>
+          <a href="#art">Art</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        <div class="navright">
-          <a class="btn small" href="#contact">Hire / Collab</a>
-          <button class="btn small burger" id="burger" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <div class="icons">
+          <a class="iconlink" href="#" title="Replace with Instagram">Instagram</a>
+          <a class="iconlink" href="#" title="Replace with GitHub">GitHub</a>
+          <span class="burger" id="burger"><b>Menu</b></span>
         </div>
       </div>
 
-      <div class="mobile" id="mobileMenu" aria-label="Mobile menu">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
+      <div class="mobile" id="mobileNav">
+        <a href="#social">Social</a>
+        <a href="#games">Games</a>
+        <a href="#software">Software</a>
+        <a href="#art">Art</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </div>
 
-  <main id="top">
-    <header class="hero">
-      <div class="wrap">
-        <div class="heroGrid">
-          <div class="heroCard">
-            <div class="heroInner">
-              <div class="kickerRow">
-                <span class="pill"><span class="dot"></span>Available for select projects</span>
-                <span class="pill">Social Media • Indie Games • Software • Art</span>
-              </div>
+  <main id="top" class="wrap">
+    <header>
+      <div class="hero">
+        <div>
+          <h1>Social media, indie games, software, and art — all under one pink roof.</h1>
+          <p class="sub">
+            I’m a social media manager, indie game developer, software engineer, and 2D/3D artist/illustrator.
+            This site is built like a hub: scroll the featured stuff, then dive into the gallery.
+          </p>
 
-              <h1>Pink-powered creative + technical work that actually ships.</h1>
-              <p class="sub">
-                I’m a social media manager, indie game dev, software engineer, and 2D/3D artist/illustrator.
-                I build audiences, build products, and build worlds. Sometimes all in the same week.
-              </p>
-
-              <div class="ctaRow">
-                <a class="btn primary" href="#work">See featured work</a>
-                <a class="btn" href="#services">What I do</a>
-                <a class="btn" href="#contact">Contact</a>
-              </div>
-
-              <div class="tagRow">
-                <span class="pill">✨ Strategy + storytelling</span>
-                <span class="pill">🎮 Cozy game dev energy</span>
-                <span class="pill">🧠 Clean code, clean design</span>
-                <span class="pill">🎨 Illustration + 3D</span>
-              </div>
-            </div>
+          <!-- NOTE: text links, not “buttons” -->
+          <div class="heroLinks" aria-label="Quick links">
+            <a href="#gallery">View work</a>
+            <a href="#contact">Email</a>
+            <a href="#" title="Replace with resume link">Resume</a>
           </div>
-
-          <aside class="sideCard">
-            <h3 class="sideTitle">Quick links</h3>
-            <div class="stack">
-              <div class="mini">
-                <div class="icon" aria-hidden="true"></div>
-                <div>
-                  <b>Resume</b>
-                  <p>1-page overview (roles, tools, highlights).</p>
-                  <div class="linkRow">
-                    <a class="btn small" href="#" aria-label="Resume PDF">Download PDF</a>
-                    <a class="btn small" href="#" aria-label="LinkedIn">LinkedIn</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mini">
-                <div class="icon" aria-hidden="true" style="background:linear-gradient(135deg, rgba(255,179,138,.95), rgba(255,79,216,.65));"></div>
-                <div>
-                  <b>Games</b>
-                  <p>Steam / itch pages, trailers, devlogs.</p>
-                  <div class="linkRow">
-                    <a class="btn small" href="#">Steam</a>
-                    <a class="btn small" href="#">itch.io</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mini">
-                <div class="icon" aria-hidden="true" style="background:linear-gradient(135deg, rgba(181,123,255,.95), rgba(255,42,166,.65));"></div>
-                <div>
-                  <b>Art</b>
-                  <p>Illustration, 3D, asset packs, commissions.</p>
-                  <div class="linkRow">
-                    <a class="btn small" href="#">ArtStation</a>
-                    <a class="btn small" href="#">Portfolio Folder</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
         </div>
+
+        <aside class="promo" aria-label="Featured promo">
+          <div class="promoMedia">
+            <!-- Replace with an actual image/gif later -->
+            <small>Featured / current focus</small>
+          </div>
+          <div class="promoBody">
+            <b>Currently: building MakeScene + running launch content</b>
+            <p>Short-form content systems, community growth, and cozy-world development.</p>
+            <a href="#games">See the featured projects</a>
+          </div>
+        </aside>
       </div>
     </header>
 
-    <section id="work">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Featured work</h2>
-            <p class="hint">Swap the placeholders with your real projects. Keep 6–12 items max and make them punchy.</p>
+    <div class="rule"></div>
+
+    <!-- FEATURED ROW (his home page is a big “books” scroller) -->
+    <section id="social" aria-label="Social Media featured">
+      <div class="sectionHead">
+        <h2>Social Media</h2>
+        <a class="miniLink" href="#contact">Work with me</a>
+      </div>
+
+      <div class="scroller" aria-label="Social media highlights">
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Launch Week Campaign</h3>
+            <p>Reels + stories + prompts + reporting. (Put your real metric highlights here.)</p>
+            <a href="#">View examples</a>
           </div>
-          <a class="btn small" href="#contact">Request a case study</a>
-        </div>
+        </article>
 
-        <div class="grid3">
-          <article class="card">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="top">
-              <span class="badge">Social Media</span>
-              <span class="pill">Growth</span>
-            </div>
-            <h3>Campaign: “Cozy Drop” Launch Week</h3>
-            <p>Content plan + reels + community prompts. Result: +X% reach, +Y followers, +Z link clicks.</p>
-            <div class="linkRow">
-              <a class="btn small" href="#">View breakdown</a>
-              <a class="btn small" href="#">Live examples</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="top">
-              <span class="badge">Indie Game Dev</span>
-              <span class="pill">Steam</span>
-            </div>
-            <h3>Game: “MakeScene” (Prototype)</h3>
-            <p>UI-driven creation game. Built systems, menus, and a content pipeline for fast iteration.</p>
-            <div class="linkRow">
-              <a class="btn small" href="#">Trailer / GIFs</a>
-              <a class="btn small" href="#">Devlog</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="top">
-              <span class="badge">Software</span>
-              <span class="pill">Web</span>
-            </div>
-            <h3>Tool: Content Calendar Generator</h3>
-            <p>A small web app that turns “messy ideas” into a weekly plan with captions, hooks, and hashtags.</p>
-            <div class="linkRow">
-              <a class="btn small" href="#">GitHub</a>
-              <a class="btn small" href="#">Live demo</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="top">
-              <span class="badge">2D Art</span>
-              <span class="pill">Illustration</span>
-            </div>
-            <h3>Illustration Series: “Warm & Weird”</h3>
-            <p>A cohesive set of cover-style illustrations exploring cozy nostalgia + bold shapes.</p>
-            <div class="linkRow">
-              <a class="btn small" href="#">Gallery</a>
-              <a class="btn small" href="#">Process</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="top">
-              <span class="badge">3D</span>
-              <span class="pill">Assets</span>
-            </div>
-            <h3>3D Pack: “Cute Props Kit”</h3>
-            <p>Game-ready assets with clean topology, consistent scale, and hand-painted textures.</p>
-            <div class="linkRow">
-              <a class="btn small" href="#">Turntable</a>
-              <a class="btn small" href="#">Download</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="top">
-              <span class="badge">Social + Tech</span>
-              <span class="pill">Systems</span>
-            </div>
-            <h3>Community Engine: Discord + Content Ops</h3>
-            <p>Built a repeatable system: content themes, post templates, analytics rhythm, and community prompts.</p>
-            <div class="linkRow">
-              <a class="btn small" href="#">System map</a>
-              <a class="btn small" href="#">Metrics</a>
-            </div>
-          </article>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="feature">
-          <div class="big">
-            <h3>A portfolio that reads like a menu: pick your flavor.</h3>
-            <p>
-              The trick is making it easy for a visitor to self-select: “I need a social media brain,”
-              “I need a dev,” “I need art,” or “I need the rare beast who can do all three.”
-            </p>
-            <div class="ctaRow">
-              <a class="btn primary" href="#services">Explore services</a>
-              <a class="btn" href="#about">Meet the human</a>
-            </div>
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Content System Setup</h3>
+            <p>Monthly themes, templates, and a repeatable calendar you can actually keep.</p>
+            <a href="#">See the system</a>
           </div>
+        </article>
 
-          <div class="side">
-            <div class="card" style="min-height:auto">
-              <div class="top">
-                <span class="badge">Best for</span>
-                <span class="pill">Hiring managers</span>
-              </div>
-              <h3>Short “proof” blocks</h3>
-              <p>Each tile should answer: what it is, what you did, and what changed.</p>
-            </div>
-
-            <div class="card" style="min-height:auto">
-              <div class="top">
-                <span class="badge">Best for</span>
-                <span class="pill">Clients</span>
-              </div>
-              <h3>Clear pathways</h3>
-              <p>Services + contact CTA everywhere. Make “next step” obvious.</p>
-            </div>
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Community Growth Sprint</h3>
+            <p>Discord + posting rhythm + engagement loops. (Replace with your case study.)</p>
+            <a href="#">Read case study</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="services">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Services</h2>
-            <p class="hint">Package your skills so people can buy them with their brains turned on.</p>
-          </div>
-        </div>
+    <div class="rule"></div>
 
-        <div class="grid4">
-          <div class="card">
-            <div class="top">
-              <span class="badge">Social Strategy</span>
-              <span class="pill">Monthly</span>
-            </div>
-            <h3>Content system setup</h3>
-            <p>Brand voice, weekly themes, post templates, + a repeatable calendar you can actually stick to.</p>
-          </div>
+    <section id="games" aria-label="Indie game dev featured">
+      <div class="sectionHead">
+        <h2>Indie Games</h2>
+        <a class="miniLink" href="#">Steam / itch</a>
+      </div>
 
-          <div class="card">
-            <div class="top">
-              <span class="badge">Short-form Video</span>
-              <span class="pill">Reels/TikTok</span>
-            </div>
-            <h3>Hooks + edits</h3>
-            <p>Scroll-stopping hooks, captions, lightweight edits, and a backlog of prompts for busy weeks.</p>
+      <div class="scroller" aria-label="Games highlights">
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>MakeScene</h3>
+            <p>Cozy creation + collage vibes. Systems + UI + content pipeline.</p>
+            <a href="#">Watch trailer</a>
           </div>
+        </article>
 
-          <div class="card">
-            <div class="top">
-              <span class="badge">Software</span>
-              <span class="pill">Build</span>
-            </div>
-            <h3>Web tools & prototypes</h3>
-            <p>Small apps, internal tools, landing pages, integrations, and workflow automation.</p>
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Devlog / Behind the Scenes</h3>
+            <p>Process posts, timelapses, and build updates.</p>
+            <a href="#">Read devlog</a>
           </div>
+        </article>
 
-          <div class="card">
-            <div class="top">
-              <span class="badge">Art</span>
-              <span class="pill">2D/3D</span>
-            </div>
-            <h3>Illustration & game assets</h3>
-            <p>Key art, UI elements, icons, props, packs — cohesive and game-ready.</p>
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Game Art + Assets</h3>
+            <p>2D/3D assets with consistent style and production sanity.</p>
+            <a href="#art">See the art</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>About</h2>
-            <p class="hint">A tiny bio + tools list helps people trust you in 8 seconds instead of 8 emails.</p>
-          </div>
-        </div>
+    <div class="rule"></div>
 
-        <div class="grid2">
-          <div class="card">
-            <div class="top">
-              <span class="badge">Bio</span>
-              <span class="pill">Human facts</span>
-            </div>
-            <h3>Hi, I’m Your Name.</h3>
-            <p>
-              I blend creative direction with technical execution: social media strategy, indie game development,
-              software engineering, and 2D/3D art. My favorite projects are the ones where the brand, product,
-              and visuals all click into one cohesive vibe.
-            </p>
-            <div class="linkRow">
-              <a class="btn small" href="#contact">Work with me</a>
-              <a class="btn small" href="#">Download resume</a>
-            </div>
-          </div>
+    <section id="software" aria-label="Software featured">
+      <div class="sectionHead">
+        <h2>Software</h2>
+        <a class="miniLink" href="#">GitHub</a>
+      </div>
 
-          <div class="card">
-            <div class="top">
-              <span class="badge">Toolbox</span>
-              <span class="pill">Skills</span>
-            </div>
-            <h3>Tools I use</h3>
-            <p>
-              Social: (Add yours) • Analytics • Scheduling • Adobe/Affinity<br>
-              Dev: JavaScript • Python • (React/Godot/GameMaker/etc)<br>
-              Art: Affinity • Blender/Blockbench • Procreate/Krita • (etc)
-            </p>
-            <div class="linkRow">
-              <a class="btn small" href="#work">See work</a>
-              <a class="btn small" href="#">GitHub</a>
-            </div>
+      <div class="scroller" aria-label="Software highlights">
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Content Calendar Generator</h3>
+            <p>Takes “vibe + goal” and outputs a weekly posting plan with hooks/captions.</p>
+            <a href="#">View code</a>
           </div>
-        </div>
+        </article>
+
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Automation Tools</h3>
+            <p>Small scripts that save time: exporters, renamers, batch processors.</p>
+            <a href="#">See snippets</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Portfolio Projects</h3>
+            <p>Clean UX, real utility, and readable code.</p>
+            <a href="#">Browse projects</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Contact</h2>
-            <p class="hint">Make it absurdly easy for someone to say “yes.”</p>
-          </div>
-        </div>
+    <div class="rule"></div>
 
-        <div class="grid2">
-          <div class="card">
-            <div class="top">
-              <span class="badge">Email</span>
-              <span class="pill">Fastest</span>
-            </div>
-            <h3>Let’s build something.</h3>
-            <p>Tell me what you need, your timeline, and what “success” means for you.</p>
-            <div class="linkRow">
-              <a class="btn primary" href="mailto:youremail@example.com">youremail@example.com</a>
-              <a class="btn" href="#">Calendly / Booking link</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="top">
-              <span class="badge">Elsewhere</span>
-              <span class="pill">Links</span>
-            </div>
-            <h3>Find me online</h3>
-            <p>
-              Add the links you actually want recruiters/clients to click.
-            </p>
-            <div class="linkRow">
-              <a class="btn small" href="#">LinkedIn</a>
-              <a class="btn small" href="#">GitHub</a>
-              <a class="btn small" href="#">ArtStation</a>
-              <a class="btn small" href="#">Instagram</a>
-              <a class="btn small" href="#">Steam</a>
-            </div>
-          </div>
-        </div>
+    <section id="art" aria-label="Art featured">
+      <div class="sectionHead">
+        <h2>Art / Illustration / 3D</h2>
+        <a class="miniLink" href="#gallery">Jump to gallery</a>
       </div>
+
+      <div class="scroller" aria-label="Art highlights">
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Illustration Series</h3>
+            <p>Posters, covers, character work. (Swap for your best set.)</p>
+            <a href="#gallery">View work</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>3D Props Kit</h3>
+            <p>Game-ready assets with consistent scale + style.</p>
+            <a href="#gallery">See renders</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="cardMedia"></div>
+          <div class="cardBody">
+            <h3>Asset Packs</h3>
+            <p>Icons, UI, environment bits, and whatever else your worlds need.</p>
+            <a href="#contact">Commission / license</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <!-- LONG GALLERY (this is the “Andy-style” endless portfolio list) -->
+    <section id="gallery" aria-label="Work gallery">
+      <div class="sectionHead">
+        <h2>Selected Work</h2>
+        <a class="miniLink" href="#contact">Inquiries</a>
+      </div>
+
+      <div class="gallery">
+        <!-- Replace each workMedia with <img src="..."> when you have images -->
+        <article class="work">
+          <div class="workMedia"></div>
+          <div class="workBody">
+            <b>Client / Project Name</b>
+            <span>One-line description (what it was / your role).</span>
+            <a href="#">Details</a>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="workMedia"></div>
+          <div class="workBody">
+            <b>Game / Tool / Campaign</b>
+            <span>Short caption. Keep it simple.</span>
+            <a href="#">Details</a>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="workMedia"></div>
+          <div class="workBody">
+            <b>Illustration / 3D Asset</b>
+            <span>Short caption. Keep it simple.</span>
+            <a href="#">Details</a>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="workMedia"></div>
+          <div class="workBody">
+            <b>Social Content Set</b>
+            <span>Short caption. Keep it simple.</span>
+            <a href="#">Details</a>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="workMedia"></div>
+          <div class="workBody">
+            <b>Software Project</b>
+            <span>Short caption. Keep it simple.</span>
+            <a href="#">Details</a>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="workMedia"></div>
+          <div class="workBody">
+            <b>Commission / Poster</b>
+            <span>Short caption. Keep it simple.</span>
+            <a href="#">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="contact" aria-label="Contact">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <span class="miniLink" style="border-bottom:0; cursor:default;">Booking + Collabs</span>
+      </div>
+
+      <p style="margin:0; color:var(--muted); max-width:70ch;">
+        Email: <a href="mailto:youremail@example.com">youremail@example.com</a> •
+        Instagram: <a href="#">@yourhandle</a> •
+        GitHub: <a href="#">yourgithub</a> •
+        LinkedIn: <a href="#">yourlinkedin</a>
+      </p>
     </section>
 
     <footer>
-      <div class="wrap">
-        <div class="footGrid">
-          <div>
-            <div class="brand" style="gap:12px">
-              <span class="logo" aria-hidden="true"></span>
-              <span>Your Name</span>
-            </div>
-            <p class="fine">
-              © <span id="year"></span> Your Name. Built with pink, spite, and good typography.
-            </p>
-          </div>
-
-          <div class="social">
-            <a class="btn small" href="#top">Back to top</a>
-            <a class="btn small" href="#work">Work</a>
-            <a class="btn small" href="#services">Services</a>
-            <a class="btn small" href="#contact">Contact</a>
-          </div>
-        </div>
+      <div class="foot">
+        © <span id="year"></span> Your Name • Built as a pink, image-first hub inspired by modern illustration portfolios. :contentReference[oaicite:2]{index=2}
       </div>
     </footer>
   </main>
 
   <script>
-    // Mobile menu toggle
-    const burger = document.getElementById('burger');
-    const mobile = document.getElementById('mobileMenu');
-    if (burger && mobile){
-      burger.addEventListener('click', () => {
-        const open = mobile.classList.toggle('open');
-        burger.setAttribute('aria-expanded', String(open));
-      });
-      mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        mobile.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-      }));
-    }
-
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobileNav');
+    if (burger && mobile){
+      burger.addEventListener('click', () => mobile.classList.toggle('open'));
+      mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobile.classList.remove('open')));
+    }
   </script>
 </body>
 </html>
